@@ -1,7 +1,5 @@
 package com.MBugajski.timingCollections;
 
-import java.util.Random;
-
 public class Book {
 	private String author;
 	private String title;

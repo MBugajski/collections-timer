@@ -2,7 +2,6 @@ package com.MBugajski.timingCollections;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class MapHashTiming extends MapsTiming {
@@ -12,45 +11,13 @@ public class MapHashTiming extends MapsTiming {
 		super(collectionSize, testSize);
 	}
 
-//	public void populate() {
-//		Random random = new Random();
-//		for (int i = 0; i < collectionSize; i++) {
-//			Integer title = random.nextInt(1000) + 999000;
-//			Integer author = random.nextInt(1000) + 100000;
-//			Book book = new Book(title.toString(), author.toString());
-//			timedHashMap.put(i, book);
-//		}
-//	}
+	BiConsumer<Integer, Book> populateHashMap = (a, b) -> timedHashMap.put(a, b);
 
-
-	BiConsumer<Integer, Book> populateMap = (a, b) -> timedHashMap.put(a, b);
-	
 	public void timeHashMap() {
 		System.out.println(readRandomPrint());
 		System.out.println(removeRandomPrint());
 		System.out.println(addRandomPrint());
 	}
-
-//	public long[] measure(HashMapOperation function) {
-//		Map<Integer, Book> tempTimedMap = new HashMap<>();
-//		Random random = new Random();
-//		random.setSeed(seed);
-//		long totalMapTiming = 0;
-//		long longestMapTiming = 0;
-//		for (int i = 0; i < testSize; i++) {
-//			tempTimedMap = timedHashMap;
-//			int randomLongTestKey = random.nextInt(timedHashMap.size() + 1);
-//			long begin = System.nanoTime();
-//			function.invoke(tempTimedMap, randomLongTestKey);
-//			long end = System.nanoTime();
-//			totalMapTiming += (end - begin);
-//			if ((end - begin) > longestMapTiming) {
-//				longestMapTiming = (end - begin);
-//			}
-//		}
-//		long averageMapTiming = (totalMapTiming / testSize);
-//		return new long[] { averageMapTiming, longestMapTiming };
-//	}
 
 	HashMapOperation readRandom = (a, b) -> a.get(b);
 

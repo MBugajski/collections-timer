@@ -1,7 +1,7 @@
 package com.MBugajski.timingCollections;
 public class ATestingEnviorement {
-	int collectionSize;
-	int testSize;
+	protected int collectionSize;
+	protected int testSize;
 	
 	public ATestingEnviorement(int collectionSize, int testSize) {
 		super();
@@ -11,13 +11,13 @@ public class ATestingEnviorement {
 	
 	public void testLinkedList() {
 		ListLinkedTiming testLinkedList = new ListLinkedTiming(collectionSize, testSize);
-		testLinkedList.populate(testLinkedList.populateList);
+		testLinkedList.populate(testLinkedList.populateLinkedList);
 		testLinkedList.timeLinkList();
 	}
 	
 	public void testHashMap() {
 		MapHashTiming testHashMap = new MapHashTiming(collectionSize, testSize);
-		testHashMap.populate(testHashMap.populateMap);
+		testHashMap.populate(testHashMap.populateHashMap);
 		testHashMap.timeHashMap();
 	}
 

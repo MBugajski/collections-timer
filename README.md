@@ -1,0 +1,1 @@
+# An open-ended application designed to measure and compare time required to perform various operations on similar assortments of data grouped into different Java collections.

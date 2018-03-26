@@ -26,6 +26,11 @@ public class ATestingEnviorement {
 		testHashSet.populate(testHashSet.populateHashSet);
 		testHashSet.timeHashSet();
 	}
+	public void testLinkedHashSet() {
+		SetLinkedHashTiming testLinkedHashSet = new SetLinkedHashTiming(collectionSize, testSize);
+		testLinkedHashSet.populate(testLinkedHashSet.populateLinkedHashSet);
+		testLinkedHashSet.timeLinkedHashSet();
+	}
 	public void testTreeSet() {
 		SetTreeTiming testTreeSet = new SetTreeTiming(collectionSize, testSize);
 		testTreeSet.populate(testTreeSet.populateTreeSet);

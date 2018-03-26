@@ -7,8 +7,9 @@ public class AppTiming {
 		ATestingEnviorement timingEnviorement = new ATestingEnviorement(2000000, 1000000);
 //		timingEnviorement.testLinkedList();
 //		timingEnviorement.testHashMap();
-//		timingEnviorement.testHashSet();
-		timingEnviorement.testTreeSet();
+		timingEnviorement.testHashSet();
+		timingEnviorement.testLinkedHashSet();
+//		timingEnviorement.testTreeSet();
 
 	}
 }

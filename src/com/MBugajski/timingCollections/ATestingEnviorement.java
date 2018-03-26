@@ -20,6 +20,11 @@ public class ATestingEnviorement {
 		testHashMap.populate(testHashMap.populateHashMap);
 		testHashMap.timeHashMap();
 	}
+	public void testHashSet() {
+		SetHashTiming testHashSet = new SetHashTiming(collectionSize, testSize);
+		testHashSet.populate(testHashSet.populateHashSet);
+		testHashSet.timeHashSet();
+	}
 
 	
 }

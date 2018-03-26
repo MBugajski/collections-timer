@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 public class SetTreeTiming extends SetsTiming{
 	Comparator<Book> compAuthor = (Book b1, Book b2) -> (b1.getAuthor().compareTo(b2.getAuthor()));
 	Comparator<Book> compTitle = (Book b1, Book b2) -> (b1.getTitle().compareTo(b2.getTitle()));
-	Set<Book> timedTreeSet = new TreeSet<Book>(compAuthor);
+	Set<Book> timedTreeSet = new TreeSet<Book>(compTitle);
 	
 	public SetTreeTiming(int collectionSize, int testSize) {
 		super(collectionSize, testSize);
@@ -17,7 +17,21 @@ public class SetTreeTiming extends SetsTiming{
 	Consumer<Book> populateTreeSet = a -> timedTreeSet.add(a);
 
 	public void timeTreeSet() {
-		long[] results = measure(timedTreeSet, readExisting);
+		long [] results;
+		results = measure(timedTreeSet, readFirst);
+		System.out.println("First: " + results[0] + ", " + results[1] + "ns");
+		results = measure(timedTreeSet, readLast);
+		System.out.println("Last: " + results[0] + ", " + results[1] + "ns");
+		results = measure(timedTreeSet, floor);
+		System.out.println("Floor: " + results[0] + ", " + results[1] + "ns");
+		results = measure(timedTreeSet, ceiling);
+		System.out.println("Ceiling: " + results[0] + ", " + results[1] + "ns");
+		results = measure(timedTreeSet, lower);
+		System.out.println("Lower: " + results[0] + ", " + results[1] + "ns");
+		results = measure(timedTreeSet, higher);
+		System.out.println("Higher: " + results[0] + ", " + results[1] + "ns\n");
+		
+		results = measure(timedTreeSet, readExisting);
 		System.out.println("Contains(existingSetEntry): " + results[0] + ", " + results[1] + "ns");
 		results = measure(timedTreeSet, readNonExisting);
 		System.out.println("Contains(random nonExistingSetEntry): " + results[0] + ", " + results[1] + "ns");
@@ -45,6 +59,17 @@ public class SetTreeTiming extends SetsTiming{
 		System.out.println("Remove(same nonExistingSetEntry as argument): " + results[0] + ", " + results[1] + "ns\n");
 	}
 
+	
+	Consumer<Set<Book>> readFirst = a -> ((TreeSet<Book>) a).first();
+	Consumer<Set<Book>> readLast = a -> ((TreeSet<Book>) a).last();
+//	Consumer<Set<Book>> floor = a -> ((TreeSet<Book>) a).floor(new Book ("0", "0"));
+//	Consumer<Set<Book>> ceiling = a -> ((TreeSet<Book>) a).ceiling(new Book ("0", "0"));
+	Consumer<Set<Book>> floor = a -> ((TreeSet<Book>) a).floor(nonExistingSetEntry);
+	Consumer<Set<Book>> ceiling = a -> ((TreeSet<Book>) a).ceiling(nonExistingSetEntry);
+	Consumer<Set<Book>> lower = a -> ((TreeSet<Book>) a).lower(nonExistingSetEntry);
+	Consumer<Set<Book>> higher = a -> ((TreeSet<Book>) a).higher(nonExistingSetEntry);
+	
+	
 	Consumer<Set<Book>> readExisting = a -> a.contains(existingSetEntry);
 	Consumer<Set<Book>> readNonExisting = a -> a.contains(nonExistingSetEntry);
 	Consumer<Set<Book>> readNonExisting0 = a -> a.contains(new Book ("1", "-1"));

@@ -20,10 +20,16 @@ public class ATestingEnviorement {
 		testHashMap.populate(testHashMap.populateHashMap);
 		testHashMap.timeHashMap();
 	}
+	
 	public void testHashSet() {
 		SetHashTiming testHashSet = new SetHashTiming(collectionSize, testSize);
 		testHashSet.populate(testHashSet.populateHashSet);
 		testHashSet.timeHashSet();
+	}
+	public void testTreeSet() {
+		SetTreeTiming testTreeSet = new SetTreeTiming(collectionSize, testSize);
+		testTreeSet.populate(testTreeSet.populateTreeSet);
+		testTreeSet.timeTreeSet();
 	}
 
 	

@@ -1,8 +1,7 @@
 package com.MBugajski.timingCollections;
 
-import java.util.Comparator;
 
-public class Book implements Comparable<Book> {
+public class Book /*implements Comparable<Book>*/ {
 	private String author;
 	private String title;
 
@@ -51,13 +50,13 @@ public class Book implements Comparable<Book> {
 		return true;
 	}
 
-	@Override
-	public int compareTo(Book b) {
-		return Comparator.comparing(Book::getAuthor).compare(this, b);
+//	@Override
+//	public int compareTo(Book b) {
+//		return Comparator.comparing(Book::getAuthor).compare(this, b);
 //		return Comparator.comparing(Book::getTitle).compare(this, b);
 //		return Comparator.comparing(Book::getTitle).thenComparing(Book::getAuthor).compare(this, b);
 //		return Comparator.comparing(Book::getAuthor).thenComparing(Book::getTitle).compare(this, b);
-	}
+//	}
 	
 	
 

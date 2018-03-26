@@ -1,11 +1,14 @@
 package com.MBugajski.timingCollections;
 
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Consumer;
 
 public class SetTreeTiming extends SetsTiming{
-	Set<Book> timedTreeSet = new TreeSet<Book>();
+	Comparator<Book> compAuthor = (Book b1, Book b2) -> (b1.getAuthor().compareTo(b2.getAuthor()));
+	Comparator<Book> compTitle = (Book b1, Book b2) -> (b1.getTitle().compareTo(b2.getTitle()));
+	Set<Book> timedTreeSet = new TreeSet<Book>(compAuthor);
 	
 	public SetTreeTiming(int collectionSize, int testSize) {
 		super(collectionSize, testSize);

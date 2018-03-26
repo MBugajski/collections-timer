@@ -1,6 +1,5 @@
 package com.MBugajski.timingCollections;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.function.BiConsumer;
@@ -24,13 +23,12 @@ public abstract class MapsTiming extends ATestingEnviorement {
 	}
 	
 	public long[] measure(Map<Integer, Book> map, HashMapOperation function) {
-		Map<Integer, Book> tempTimedMap = new HashMap<>();
 		Random random = new Random();
 		random.setSeed(seed);
 		long totalMapTiming = 0;
 		long longestMapTiming = 0;
 		for (int i = 0; i < testSize; i++) {
-			tempTimedMap = map;
+			Map<Integer, Book> tempTimedMap = map;
 			int randomLongTestKey = random.nextInt(map.size() + 1);
 			long begin = System.nanoTime();
 			function.invoke(tempTimedMap, randomLongTestKey);

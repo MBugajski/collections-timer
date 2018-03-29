@@ -1,10 +1,9 @@
-package com.MBugajski.timingCollections;
+package com.mbugajski.timingcollections;
 public class ATestingEnviorement {
 	protected int collectionSize;
 	protected int testSize;
 	
 	public ATestingEnviorement(int collectionSize, int testSize) {
-		super();
 		this.collectionSize = collectionSize;
 		this.testSize = testSize;
 	}

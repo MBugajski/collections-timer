@@ -1,4 +1,4 @@
-package com.MBugajski.timingCollections;
+package com.mbugajski.timingcollections;
 
 import java.util.Comparator;
 import java.util.Set;

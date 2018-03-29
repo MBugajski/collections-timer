@@ -1,4 +1,4 @@
-package com.MBugajski.timingCollections;
+package com.mbugajski.timingcollections;
 
 public class AppTiming {
 
